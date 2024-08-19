@@ -35,4 +35,8 @@ async def get_url_by_uuid(url_uuid: str, db: Session = Depends(get_db)):
 @app.post("/add-url", response_model=schemas.UrlInformation)
 async def add_url(url_information: schemas.UrlInformationCreate, db: Session = Depends(get_db)):
     return url_shortner.create_url_information(db, url_information)
+    
+@app.post("/add-url/alias", response_model=schemas.UrlInformation)
+async def add_url_with_alias(url_information: schemas.UrlInformation, db: Session = Depends(get_db)):
+    return url_shortner.create_url_with_alias(db, url_information)
 

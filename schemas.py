@@ -10,6 +10,5 @@ class UrlInformationCreate(UrlInformationBase):
 class UrlInformation(UrlInformationBase):
     id: str
     
-    class Config:
-        orm_mode = True
+
     
