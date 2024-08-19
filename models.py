@@ -11,9 +11,11 @@ class UrlInformation(Base):
     id = Column(String, primary_key=True)
     url = Column(String)
     
-    def __init__(self, url):
+    def __init__(self, id, url):
         
-        crc32_hash = hex(zlib.crc32(str(uuid4()).encode("utf-8")))
-        
-        self.id = crc32_hash
+        if id == None:
+            crc32_hash = hex(zlib.crc32(str(uuid4()).encode("utf-8")))
+            self.id = crc32_hash
+        else:   
+            self.id = id
         self.url = url
