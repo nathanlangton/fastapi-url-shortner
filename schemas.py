@@ -10,5 +10,17 @@ class UrlInformationCreate(UrlInformationBase):
 class UrlInformation(UrlInformationBase):
     id: str
     
+    
+class UserBase(BaseModel):
+    username: str
+    password: str
+
+
+class UserCreate(UserBase):
+    pass
+
+class User(UserBase):
+    id: int
+    
 
     
